@@ -25,3 +25,16 @@ RUN npm install -g pxt
 # [Optional] Uncomment this section to install additional packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 #     && apt-get -y install --no-install-recommends <your-package-list-here>
+
+RUN mkdir /opt/ubit
+WORKDIR /opt/ubit
+RUN git clone --depth=1 https://github.com/NordicSemiconductor/nrfx.git
+RUN git clone --depth=1 https://github.com/lancaster-university/microbit.git \
+    && git clone --depth=1 https://github.com/lancaster-university/microbit-dal.git
+RUN git clone --depth=1 https://github.com/lancaster-university/codal-core.git \
+    && git clone --depth=1 https://github.com/lancaster-university/codal-microbit.git \
+    && git clone --depth=1 https://github.com/lancaster-university/codal-microbit-v2.git
+RUN git clone --depth=1 https://github.com/microsoft/pxt.git \
+    && git clone --depth=1 https://github.com/microsoft/pxt-common-packages.git \
+    && git clone --depth=1 https://github.com/microsoft/pxt-microbit.git
+RUN git clone --depth=1 https://github.com/lancaster-university/BLE_API.git

@@ -2,11 +2,17 @@
 declare namespace custom_cpp {
 
     /**
-     * TODO: describe your function here
-     * @param value describe value here, eg: 5
+     * Start CSC Service.
      */
-    //% shim=custom_cpp::bar
-    function bar(v: int32): int32;
+    //% shim=custom_cpp::startCSCService
+    function startCSCService(): void;
+
+    /**
+     * Count up crank revolutions
+     * 
+     */
+    //% shim=custom_cpp::countUpCrankRevolutions
+    function countUpCrankRevolutions(): void;
 }
 
 // Auto-generated. Do not edit. Really.

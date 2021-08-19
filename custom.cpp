@@ -1,14 +1,27 @@
-#include "lib/customlib.h"
+#include "MicroBitCSCService.h"
 
 namespace custom_cpp {
     
+    MicroBitCSCService* _pCSCService = NULL;
+
     /**
-     * TODO: describe your function here
-     * @param value describe value here, eg: 5
-     */
+    * Start CSC Service.
+    */
     //%
-    int bar(int v) {
-        return customlib::countdown(v);
+    void startCSCService() {
+        if (NULL!=_pCSCService) return;
+        _pCSCService = new MicroBitCSCService();
+    }
+
+    /**
+     * Count up crank revolutions
+     * 
+     */
+    //%    
+    void countUpCrankRevolutions()
+    {
+        startCSCService();
+        _pCSCService->countUpCrankRevolutions();
     }
 
 }

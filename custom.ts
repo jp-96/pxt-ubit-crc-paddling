@@ -4,13 +4,6 @@
 * Read more at https://makecode.microbit.org/blocks/custom
 */
 
-enum MyEnum {
-    //% block="one"
-    One,
-    //% block="two"
-    Two
-}
-
 /**
  * Custom blocks
  * icon: a Unicode identifier for an icon from the Font Awesome icon set.
@@ -18,34 +11,25 @@ enum MyEnum {
  */
 //% weight=100 color=#0fbc11 icon=""
 namespace custom {
+    
     /**
-     * TODO: describe your function here
-     * @param n describe parameter here, eg: 5
-     * @param s describe parameter here, eg: "Hello"
-     * @param e describe parameter here
-     */
+    * Start CSC controller.
+    */
     //% block
-    export function foo(n: number, s: string, e: MyEnum): void {
-        // Add code here
+    //% shim=custom_cpp::startCSCService
+    export function startCSCService(): void {
+        console.log("startCSCService")
     }
 
+    
     /**
-     * TODO: describe your function here
-     * @param value describe value here, eg: 5
+     * Count up crank revolutions
+     * 
      */
     //% block
-    export function fib(value: number): number {
-        return value <= 1 ? value : fib(value -1) + fib(value - 2);
+    //% shim=custom_cpp::countUpCrankRevolutions
+    export function countUpCrankRevolutions(): void {
+        console.log("countUpCrankRevolutions")
     }
-
-    /**
-     * TODO: describe your function here
-     * @param value describe value here, eg: 5
-     */
-    //% block
-    //% shim=custom_cpp::bar
-    export function bar(value: number): number {
-        // for the simulator
-        return (value + 1) % 10;
-    }
+    
 }
