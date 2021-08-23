@@ -1,21 +1,29 @@
 {
-    "name": "pxt-ubit-extension",
+    "name": "pxt-microbit-csc-service",
     "description": "",
     "dependencies": {
-        "core": "*"
+        "core": "*",
+        "bluetooth": "*"
     },
     "files": [
         "README.md",
         "enums.d.ts",
         "shims.d.ts",
+        "struct/include/struct/struct.h",
+        "struct/src/struct_endian.h",
+        "struct/src/struct_endian.c",
+        "struct/src/struct.c",
+        "MicroBitCSCService.h",
+        "MicroBitCSCService.cpp",
+        "AccCSCSensor.h",
+        "AccCSCSensor.cpp",
         "custom.ts",
-        "custom.cpp",
-        "lib/customlib.h",
-        "lib/customlib.cpp"
+        "custom.cpp"
     ],
     "testFiles": [
         "test.ts"
     ],
+    "public": true,
     "targetVersions": {
         "target": "4.0.11",
         "targetId": "microbit"
@@ -23,5 +31,28 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "tsprj"
+    "preferredEditor": "tsprj",
+    "yotta": {
+        "config": {
+            "microbit-dal": {
+                "bluetooth": {
+                    "enabled": 1,
+                    "private_addressing": 0,
+                    "advertising_timeout": 0,
+                    "tx_power": 0,
+                    "dfu_service": 0,
+                    "event_service": 0,
+                    "device_info_service": 1,
+                    "eddystone_url": 0,
+                    "eddystone_uid": 0,
+                    "open": 1,
+                    "pairing_mode": 1,
+                    "whitelist": 1,
+                    "security_level": "SECURITY_MODE_ENCRYPTION_NO_MITM",
+                    "partial_flashing": 0
+                },
+                "gatt_table_size": "0x300"
+            }
+        }
+    }
 }
