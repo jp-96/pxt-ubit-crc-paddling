@@ -1,0 +1,6 @@
+{
+  "custom.countUpCrankRevolutions|block": "count up crank revolutions",
+  "custom.startCSCService|block": "bluetooth csc service",
+  "custom|block": "custom",
+  "{id:category}Custom": "Custom"
+}
