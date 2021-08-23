@@ -2,8 +2,6 @@
 #define MICROBIT_CSC_SERVICE_H
 
 #include "pxt.h"
-#include "MicroBitConfig.h"
-#include "EventModel.h"
 
 // UUIDs for our service and characteristics
 extern const uint16_t  CSCServiceUUID;
@@ -113,10 +111,10 @@ class MicroBitCSCService : public MicroBitComponent
     virtual void idleTick();
 
     /**
-     * Count up crank revolutions
-     * 
+     * Count up crank revolutions.
+     * @param timestamp The time on crank sensor in microseconds.
      */
-    void countUpCrankRevolutions();
+    void countUpCrankRevolutions(uint64_t timestamp);
 
 private:
 
@@ -130,9 +128,10 @@ private:
      * Get event time (1/1024s)
      * The Last Wheel Event Time value rolls over every 64 seconds
      * The Last Crank Event Time value rolls over every 64 seconds.
+     * @param timestamp The time in microseconds.
      * 
      **/
-    uint16_t getEventTimeRollOverEvery64Seconds();
+    uint16_t getEventTimeRollOverEvery64Seconds(uint64_t timestamp);
 
     // instance
     MicroBitCSCServiceDal* pCSCServiceDal;

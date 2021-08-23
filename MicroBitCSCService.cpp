@@ -1,8 +1,6 @@
 #include "pxt.h"
-#include "MicroBitConfig.h"
-#include "MicroBitEvent.h"
-#include "MicroBitCSCService.h"
 #include "struct/include/struct/struct.h"
+#include "MicroBitCSCService.h"
 
 //================================================================
 #if MICROBIT_CODAL
@@ -104,8 +102,8 @@ MicroBitCSCService::MicroBitCSCService()
 {
     pCSCServiceDal = new MicroBitCSCServiceDal(*uBit.ble);
     updateSampleTimestamp = 0;
-    cumulativeCrankRevolutions = 0;
-    lastCrankEventTime = getEventTimeRollOverEvery64Seconds();
+    cumulativeCrankRevolutions = 1;
+    lastCrankEventTime = getEventTimeRollOverEvery64Seconds(system_timer_current_time_us());
     
     // start
     idleTick();
@@ -135,13 +133,13 @@ void MicroBitCSCService::update(void)
     }
 }
 
-uint16_t MicroBitCSCService::getEventTimeRollOverEvery64Seconds()
+uint16_t MicroBitCSCService::getEventTimeRollOverEvery64Seconds(uint64_t timestamp)
 {
-    return (system_timer_current_time_us() * 1024) / 1000000;
+    return (timestamp * 1024) / 1000000;
 }
 
-void MicroBitCSCService::countUpCrankRevolutions()
+void MicroBitCSCService::countUpCrankRevolutions(uint64_t timestamp)
 {
-    lastCrankEventTime = getEventTimeRollOverEvery64Seconds();
+    lastCrankEventTime = getEventTimeRollOverEvery64Seconds(timestamp);
     ++cumulativeCrankRevolutions;
 }
