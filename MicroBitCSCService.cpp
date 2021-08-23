@@ -53,7 +53,7 @@ MicroBitCSCServiceDal::MicroBitCSCServiceDal(BLEDevice &_ble) :
     uint8_t serviceIDs[2];
     struct_pack(serviceIDs, "<H", CSCServiceUUID);
     ble.accumulateAdvertisingPayload(GapAdvertisingData::COMPLETE_LIST_16BIT_SERVICE_IDS, serviceIDs, sizeof(serviceIDs));
-    //ble.accumulateAdvertisingPayload(GapAdvertisingData::CYCLING_SPEED_AND_CADENCE_SENSOR );
+    ble.accumulateAdvertisingPayload(GapAdvertisingData::CYCLING_SPEED_AND_CADENCE_SENSOR );
     
     // retreive handles
     cscMeasurementCharacteristicHandle = cscMeasurementCharacteristic.getValueHandle();

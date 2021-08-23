@@ -1,8 +1,0 @@
-{
-  "custom.countUpCrankRevolutions|block": "true",
-  "custom.startCSCController|block": "true",
-  "custom_cpp|block": "custom_cpp",
-  "custom|block": "custom",
-  "{id:category}Custom": "Custom",
-  "{id:category}Custom_cpp": "Custom_cpp"
-}

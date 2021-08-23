@@ -1,8 +1,9 @@
 {
-    "name": "pxt-ubit-extension",
+    "name": "pxt-microbit-csc-service",
     "description": "",
     "dependencies": {
-        "core": "*"
+        "core": "*",
+        "bluetooth": "*"
     },
     "files": [
         "README.md",

@@ -101,7 +101,7 @@ class MicroBitCSCService : public MicroBitComponent
 
     /**
       * Constructor.
-      * Create a representation of the CSC Controller
+      * Create a representation of the CSC Service
       * 
       */
     MicroBitCSCService();

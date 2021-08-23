@@ -1,7 +1,0 @@
-{
-  "custom": "Use this file to define custom functions and blocks.\nRead more at https://makecode.microbit.org/blocks/custom\n\nCustom blocks\nicon: a Unicode identifier for an icon from the Font Awesome icon set.\nhttp://fontawesome.io/icons",
-  "custom.countUpCrankRevolutions": "Count up crank revolutions",
-  "custom.startCSCController": "Start CSC controller.",
-  "custom_cpp.countUpCrankRevolutions": "Count up crank revolutions",
-  "custom_cpp.startCSCService": "Start CSC Service."
-}
